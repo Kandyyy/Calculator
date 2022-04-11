@@ -25,7 +25,7 @@ namespace Calculator
         string op;
         private void ResetValues(int x, int y, string op)
         {
-            x = 0; y = 0;op = "";
+            x *= 0; y *= 0;op = "";
         }
 
         public MainWindow()
@@ -43,6 +43,7 @@ namespace Calculator
             Button b = (Button)sender;
             op = b.Content.ToString();
             value1 = Convert.ToInt32(TheTextBox.Text);
+            MiniTextBox.Text = $"{value1.ToString()}{op}";
             TheTextBox.Clear();
         }
 
@@ -70,6 +71,7 @@ namespace Calculator
                 TheTextBox.Text = value1.ToString();
             }
             ResetValues(value, value1, op);
+            MiniTextBox.Clear();
         }
 
         private void Button_clear_Click(object sender, RoutedEventArgs e)

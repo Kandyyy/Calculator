@@ -20,10 +20,10 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        int value1;
-        int value;
+        double value1;
+        double value;
         string op;
-        private void ResetValues(int x, int y, string op)
+        private void ResetValues(double x, double y, string op)
         {
             x *= 0; y *= 0;op = "";
         }
@@ -32,6 +32,7 @@ namespace Calculator
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
@@ -42,14 +43,14 @@ namespace Calculator
         {
             Button b = (Button)sender;
             op = b.Content.ToString();
-            value1 = Convert.ToInt32(TheTextBox.Text);
+            value1 = Convert.ToDouble(TheTextBox.Text);
             MiniTextBox.Text = $"{value1.ToString()}{op}";
             TheTextBox.Clear();
         }
 
         private void Button_equal_Click(object sender, RoutedEventArgs e)
         {
-            value = Convert.ToInt32(TheTextBox.Text);
+            value = Convert.ToDouble(TheTextBox.Text);
             if(op == "+")
             {
                 value1 += value;
@@ -78,6 +79,37 @@ namespace Calculator
         {
             ResetValues(value, value1, op);
             TheTextBox.Text = "0";
+        }
+
+        private void Button_prd_Click(object sender, RoutedEventArgs e)
+        {
+            TheTextBox.Text += ".";
+        }
+
+        private void Button_sqr_Click(object sender, RoutedEventArgs e)
+        {
+            value = Convert.ToDouble(TheTextBox.Text);
+            TheTextBox.Text =  Convert.ToString(Convert.ToDouble(Math.Pow(value, 2)));
+        }
+
+        private void Button_sqrt_Click(object sender, RoutedEventArgs e)
+        {
+            value = Convert.ToDouble(TheTextBox.Text);
+            TheTextBox.Text = Convert.ToString(Convert.ToDouble(Math.Sqrt(value)));
+        }
+
+        private void Button_frac_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                value = Convert.ToDouble(TheTextBox.Text);
+                TheTextBox.Text = Convert.ToString(1 / value);
+            }
+            catch
+            {
+                TheTextBox.FontSize = 15;
+                TheTextBox.Text = "Please enter a value and then press the button :/";
+            }
         }
     }
 }

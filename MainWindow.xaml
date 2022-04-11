@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Calculator" Height="450" Width="400" ResizeMode="CanMinimize">
+        Title="Calculator" Height="550" Width="400" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,6 +14,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -38,6 +39,10 @@
         <Button x:Name="Button_multi" Click="Op_Button_Click" FontSize="30" Grid.Column="2" Grid.Row="2">x</Button>
         <Button x:Name="Button_sub" Click="Op_Button_Click" FontSize="30" Grid.Column="1" Grid.Row="2">-</Button>
         <Button x:Name="Button_add" Click="Op_Button_Click" FontSize="30" Grid.Column="0" Grid.Row="2">+</Button>
+        <Button x:Name="Button_sqr" Click="Button_sqr_Click" FontSize="30" Grid.Column="1" Grid.Row="7">x^2</Button>
+        <Button x:Name="Button_sqrt" Click="Button_sqrt_Click" FontSize="30" Grid.Column="2" Grid.Row="7">root</Button>
+        <Button x:Name="Button_frac" Click="Button_frac_Click" FontSize="30" Grid.Column="3" Grid.Row="7">1/x</Button>
         <Button x:Name="Button_clear" Click="Button_clear_Click" FontSize="30" Grid.Column="3" Grid.Row="3" >CE</Button>
+        <Button x:Name="Button_prd" Click="Button_prd_Click" FontSize="30" Grid.Column="0" Grid.Row="7">.</Button>
     </Grid>
 </Window>
